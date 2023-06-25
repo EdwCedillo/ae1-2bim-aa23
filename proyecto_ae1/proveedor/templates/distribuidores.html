@@ -1,0 +1,35 @@
+{% extends "principal.html" %}
+{% block contentido %}
+
+  <h3>Lista de Proveedores</h3>
+  <p><b>Numero de Proveedores: ({{num_entidades}})</b> </p>
+  <table id="tabla_datos">
+    <thead>
+    <tr>
+      <th>RUC</th>
+      <th>Razon Social</th>
+      <th>Estadio</th>
+      <th>Cupo</th>
+      <th>Tiempo de Credito</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for proveedor in mis_Entidades  %}
+      <tr>
+        <td>{{proveedor.ruc}}</td>
+        <td>{{proveedor.razon_social}}</td>
+        <td>{{proveedor.cupo}}</td>
+        <td>{{proveedor.tiempo_credito}}</td>
+        <td>{{proveedor.nombre_comercial}}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+  </tbody>
+    <script type="text/javascript">
+      $(document).ready( function () {
+          $('#tabla_datos').DataTable();
+        });
+    </script>
+{% endblock %}
+
